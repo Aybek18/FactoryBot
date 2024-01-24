@@ -5,15 +5,18 @@ from users.models import User
 from users.services import FernetService
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=["start"])
 def start_handler(message: types.Message):
     user_id = message.from_user.id
     username = message.from_user.username
-    bot.send_message(user_id, text=f"Привет {username}! \nЯ ваш Telegram бот который будет дублировать ваши сообщения."
-                                   "\nДля того чтобы ваши сообщения дублировались здесь:"
-                                   "\n1. Сначала зарегистрируйтесь на сайте."
-                                   "\n2. Сгенерируйте токен в личном профиле."
-                                   "\n3. Скопируйте токен и отправьте мне.")
+    bot.send_message(
+        user_id,
+        text=f"Привет {username}! \nЯ ваш Telegram бот который будет дублировать ваши сообщения."
+        "\nДля того чтобы ваши сообщения дублировались здесь:"
+        "\n1. Сначала зарегистрируйтесь на сайте."
+        "\n2. Сгенерируйте токен в личном профиле."
+        "\n3. Скопируйте токен и отправьте мне.",
+    )
 
 
 @bot.message_handler(func=lambda message: True)

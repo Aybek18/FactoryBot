@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
+from django.urls import include, path
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 api_urls = [
     path("users/", include("users.urls")),
-    path("messages/", include("telegram.urls"))
+    path("messages/", include("telegram.urls")),
 ]
 
 docs_urls = [

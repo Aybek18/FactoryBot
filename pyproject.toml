@@ -15,8 +15,12 @@ django-environ = "^0.11.2"
 pytelegrambotapi = "^4.13.0"
 cryptography = "^41.0.4"
 gunicorn = "^21.2.0"
+pre-commit = "^3.6.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"

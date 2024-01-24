@@ -1,5 +1,5 @@
 from rest_framework import status
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
 from telegram.models import TelegramMessage
@@ -23,6 +23,8 @@ class MessageSendAPIView(CreateAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.validated_data["user"] = request.user
-        TelegramService.send_message_to_user(user=request.user, message=serializer.validated_data["message"])
+        TelegramService.send_message_to_user(
+            user=request.user, message=serializer.validated_data["message"]
+        )
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -1,0 +1,29 @@
+[flake8]
+max-line-length = 100
+pytest-parametrize-values-type=tuple
+
+exclude =
+	.git,
+	__pycache__,
+	build,
+	dist,
+
+ignore =
+    W503,C812,SIM106,CCR001,R503,
+    ANN401,
+    E501,
+    E402,
+    C813,
+    I001,
+    I005
+
+
+
+accept-encodings = utf-8,utf-16
+no-accept-encodings = True
+
+inline-quotes = "
+
+classmethod-decorators =
+    classmethod
+    validator

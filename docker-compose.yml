@@ -18,7 +18,7 @@ services:
     image: ${BASE_IMAGE_TAG:-factory_bot_image}
     command: /bin/bash -c "
       while !</dev/tcp/db/5432; do sleep 1; done;
-      python manage.py migrate --no-input && 
+      python manage.py migrate --no-input &&
       gunicorn core.wsgi:application -b 0.0.0.0:8000 --reload --workers 2 --timeout 6
       "
     volumes:

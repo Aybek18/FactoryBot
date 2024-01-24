@@ -23,10 +23,9 @@ class FernetService:
         """Простой алгоритм для генерации токена, куда передается секретный ключ и username пользователя"""
         cipher_suite = Fernet(cls._fernet())
 
-        data_to_encrypt = f"{username}".encode('utf-8')
+        data_to_encrypt = f"{username}".encode("utf-8")
 
-        token = cipher_suite.encrypt(data_to_encrypt)
-        return token
+        return cipher_suite.encrypt(data_to_encrypt)
 
     @classmethod
     def decode_token(cls, token) -> str:
@@ -35,7 +34,9 @@ class FernetService:
             decoded_data = cipher_suite.decrypt(token=token).decode("utf-8")
             return decoded_data
         except Exception as e:
-            print(f"Ошибка при декодировании токена: {str(e)}")  # TODO можно добавить логирование вместо print()
+            print(
+                f"Ошибка при декодировании токена: {str(e)}"
+            )  # TODO можно добавить логирование вместо print()
 
 
 class UserAuthService:

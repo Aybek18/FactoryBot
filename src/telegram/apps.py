@@ -6,4 +6,4 @@ class BotConfig(AppConfig):
     name = "telegram"
 
     def ready(self):
-        import telegram.handlers # noqa
+        import telegram.handlers  # noqa
